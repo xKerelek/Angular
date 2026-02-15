@@ -16,12 +16,6 @@ Każde zadanie będzie umieszczane w **osobnym branchu**, aby zachować porząde
 
 ---
 
-## 🌿 Struktura
-
-Każde zadanie trafia do osobnego brancha.
-
----
-
 ## 🚀 Postęp
 
 Lista zadań będzie rosła wraz z moją nauką.  
