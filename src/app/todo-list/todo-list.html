@@ -1,0 +1,24 @@
+<p class="mt-4">Dodaj nowe zadanie</p>
+<input type="text" #name class="form-control" name="todo">
+<button type="button" class=" btn btn-primary mt-3" (click)="addToDo(name.value)">Dodaj zadanie</button>
+
+<div class="alert alert-warning alert-dismissible fade show mt-2" role="alert" *ngIf="errorMessage">
+  {{errorMessage}}
+  <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close" (click)="clearErrorMessage()"></button>
+</div>
+
+<div class="mt-5">
+  <h4>Zadania:</h4>
+  <ul class="list-group todos-list" *ngIf="todos.length > 0">
+    <li class="list-group-item" *ngFor="let todo of todos; let i = index">
+      <input
+      type="checkbox"
+      class="form-check-input my-1"
+      [checked]="todo.isComplete"
+      (change)="changeToDoStatus(todo)"
+      >
+      <span class="todo-item" [ngClass]="{'text-decoration-line-through': todo.isComplete}">{{i + 1}}. {{todo.name}}</span>
+    </li>
+  </ul>
+  <h5 *ngIf="todos.length === 0">Brak zadań ...</h5>
+</div>
