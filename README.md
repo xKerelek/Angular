@@ -1,59 +1,47 @@
-# PierwszyProjekt
+# 📝 Zadanie 1 – ToDo Lista
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+W ramach pierwszego zadania stworzyłem prostą **ToDo listę** w Angularze.  
+Projekt pozwala dodawać, usuwać oraz oznaczać zadania jako wykonane.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🎨 Użyte technologie i funkcje
 
-```bash
+### 🧩 Angular – Data Binding
+W zadaniu wykorzystałem podstawowe mechanizmy Angulara:
+
+- **\*ngFor** – do wyświetlania listy zadań  
+- **\*ngIf** – do warunkowego renderowania elementów  
+- **[ngClass]** – do dynamicznego nadawania klas (np. styl dla ukończonego zadania)
+
+---
+
+## 💅 Stylowanie
+
+Do stylów użyłem **Bootstrap**, dzięki czemu aplikacja wygląda estetycznie i jest responsywna.
+
+---
+
+## ▶️ Uruchomienie projektu Aby uruchomić projekt lokalnie: 
+1. Zainstaluj zależności: 
+```bash 
+npm install
+```
+2. Uruchom serwer deweloperski: 
+```bash 
 ng serve
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+1. Owtórz aplikację pod adresem: 
+```bash 
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🚀 Podsumowanie
 
-```bash
-ng generate --help
-```
+To zadanie pozwoliło mi przećwiczyć podstawy Angulara, takie jak:
+- praca z komponentami,
+- data binding,
+- dynamiczne style,
+- oraz integracja z Bootstrapem.
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Kolejne zadania będą pojawiać się w następnych branchach.
