@@ -4,15 +4,9 @@
 <div class="mt-5">
   <h4>Zadania:</h4>
   <ul class="list-group todos-list" *ngIf="todos.length > 0">
-    <li class="list-group-item" *ngFor="let todo of todos; let i = index">
-      <input
-      type="checkbox"
-      class="form-check-input my-1"
-      [checked]="todo.isComplete"
-      (change)="changeToDoStatus(todo)"
-      >
-      <span class="todo-item" [ngClass]="{'text-decoration-line-through': todo.isComplete}">{{i + 1}}. {{todo.name}}</span>
-    </li>
+    <ng-container *ngFor="let todo of todos; let i = index">
+    <app-todo [todo]="todo" [i]="i"></app-todo>
+  </ng-container>
   </ul>
   <h5 *ngIf="todos.length === 0">Brak zadań ...</h5>
 </div>
