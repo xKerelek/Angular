@@ -1,7 +1,4 @@
-<p class="mt-4">Dodaj nowe zadanie</p>
-<input type="text" #name class="form-control" name="todo">
-<button type="button" class=" btn btn-primary mt-3" (click)="addToDo(name.value)">Dodaj zadanie</button>
-
+<app-add-todo-form (addToDoTask)="addToDo($event)"></app-add-todo-form>
 <app-alert *ngIf="errorMessage" [errorMessage]="errorMessage" (clearMessage)="clearErrorMessage()"></app-alert>
 
 <div class="mt-5">

@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToDo } from '../shared/interfaces/todo.interface';
 import { Alert } from "../shared/components/alert/alert";
+import { AddTodoForm } from "./add-todo-form/add-todo-form";
 
 @Component({
   selector: 'app-todo-list',
-  imports: [CommonModule, Alert],
+  imports: [CommonModule, Alert, AddTodoForm],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
 })
