@@ -8,11 +8,24 @@ Projekt pozwala dodawać, usuwać oraz oznaczać zadania jako wykonane.
 ## 🎨 Użyte technologie i funkcje
 
 ### 🧩 Angular – Data Binding
-W zadaniu wykorzystałem podstawowe mechanizmy Angulara:
 
 - **\*ngFor** – do wyświetlania listy zadań  
 - **\*ngIf** – do warunkowego renderowania elementów  
 - **[ngClass]** – do dynamicznego nadawania klas (np. styl dla ukończonego zadania)
+
+---
+
+### 🧩 Angular – Komunikacja między komponentami (Dekoratory)
+
+- **@Input()** – przekazywanie danych z komponentu nadrzędnego do dziecka  
+- **@Output()** – wysyłanie zdarzeń z komponentu dziecka do nadrzędnego
+
+---
+
+### 🧩 Angular – Dependency Injection
+
+- Wstrzykiwanie zależności w konstruktorze  
+- Tworzenie i używanie serwisów do logiki biznesowej oraz zarządzania danymi
 
 ---
 
@@ -41,7 +54,9 @@ http://localhost:4200
 To zadanie pozwoliło mi przećwiczyć podstawy Angulara, takie jak:
 - praca z komponentami,
 - data binding,
+- dekoratory,
+- DI - Dependency Injection,
 - dynamiczne style,
-- oraz integracja z Bootstrapem.
+- integracja z Bootstrapem.
 
 Kolejne zadania będą pojawiać się w następnych branchach.
