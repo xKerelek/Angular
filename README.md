@@ -13,14 +13,10 @@ Projekt pozwala dodawać, usuwać oraz oznaczać zadania jako wykonane.
 - **\*ngIf** – do warunkowego renderowania elementów  
 - **[ngClass]** – do dynamicznego nadawania klas (np. styl dla ukończonego zadania)
 
----
-
 ### 🧩 Angular – Komunikacja między komponentami (Dekoratory)
 
 - **@Input()** – przekazywanie danych z komponentu nadrzędnego do dziecka  
 - **@Output()** – wysyłanie zdarzeń z komponentu dziecka do nadrzędnego
-
----
 
 ### 🧩 Angular – Dependency Injection
 
