@@ -13,10 +13,12 @@ export class Todo {
   @Input() todo!: ToDo;
   @Input() i!: number;
   @Output() delete = new EventEmitter<void>();
+  @Output() changeStatus = new EventEmitter<number>();
   openModal = false;
 
+
   changeToDoStatus(todo: ToDo) {
-    todo.isComplete = !todo.isComplete;
+    this.changeStatus.emit(this.i);
   }
 
   toggleModal() {
@@ -26,5 +28,4 @@ export class Todo {
   deleteTodo() {
     this.delete.emit();
   }
-
 }
