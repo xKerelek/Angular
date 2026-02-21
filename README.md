@@ -23,6 +23,13 @@ Projekt pozwala dodawać, usuwać oraz oznaczać zadania jako wykonane.
 - Wstrzykiwanie zależności w konstruktorze  
 - Tworzenie i używanie serwisów do logiki biznesowej oraz zarządzania danymi
 
+### 🧩 Angular – Subskrypcje i Lifecycle Hooks
+
+- Służące do reagowania na zmiany listy zadań, dzięki temu automatycznie aktualizuje się widok, gdy dane ulegną zmianie.
+- onOnInit() - w której zasubskrybowałem todoChanged z serwisu.
+- onOnDestroy() - odsubskybowuję, by uniknąć wycieku pamięci.
+
+
 ---
 
 ## 💅 Stylowanie
@@ -53,6 +60,8 @@ To zadanie pozwoliło mi przećwiczyć podstawy Angulara, takie jak:
 - dekoratory,
 - DI - Dependency Injection,
 - dynamiczne style,
-- integracja z Bootstrapem.
+- integracja z Bootstrapem,
+- lifecycle hooks,
+- subskrypcje.
 
 Kolejne zadania będą pojawiać się w następnych branchach.
