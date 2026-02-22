@@ -29,6 +29,12 @@ Projekt pozwala dodawać, usuwać oraz oznaczać zadania jako wykonane.
 - onOnInit() - w której zasubskrybowałem todoChanged z serwisu.
 - onOnDestroy() - odsubskybowuję, by uniknąć wycieku pamięci.
 
+### 🧩 Angular – Nawigacja + Wyświetlanie szczegółów zadań
+
+- **ActivatedRoute** — do pobierania parametru `id` z URL
+- **Router** — do przechodzenia do kolejnego zadania
+- **Location** — do powrotu na poprzednią stronę
+- **Subskrypcję paramMap** — aby reagować na zmianę parametru w adresie
 
 ---
 
@@ -62,6 +68,7 @@ To zadanie pozwoliło mi przećwiczyć podstawy Angulara, takie jak:
 - dynamiczne style,
 - integracja z Bootstrapem,
 - lifecycle hooks,
-- subskrypcje.
+- subskrypcje,
+- nawigacja.
 
 Kolejne zadania będą pojawiać się w następnych branchach.
