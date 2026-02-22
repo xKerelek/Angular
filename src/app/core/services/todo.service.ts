@@ -14,6 +14,10 @@ export class TodoService {
     return this._todos.slice();
   }
 
+  getTodo(index: number): ToDo | undefined {
+    return this.todos[index];
+  }
+
   addToDo(name: string): void {
     this._todos.push({name: name, isComplete: false});
     this.saveToLocalStorage();

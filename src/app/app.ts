@@ -1,15 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
-import { TodoList } from './todo-list/todo-list';
 import { FormsModule } from '@angular/forms';
 import { Footer } from './footer/footer';
-import { FirstLetter } from './shared/directives/first-letter';
 
 
 @Component({
   selector: 'app-root',
-  imports: [Header, TodoList, Footer, FormsModule, FirstLetter],
+  imports: [Header, Footer, FormsModule, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

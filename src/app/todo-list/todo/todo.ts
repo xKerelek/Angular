@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ToDo } from '../../shared/interfaces/todo.interface';
 import { CommonModule } from '@angular/common';
 import { Modal } from '../../shared/components/modal/modal';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo',
@@ -16,6 +17,10 @@ export class Todo {
   @Output() changeStatus = new EventEmitter<number>();
   openModal = false;
 
+  constructor(private router: Router, private route: ActivatedRoute) {
+
+  }
+
 
   changeToDoStatus(todo: ToDo) {
     this.changeStatus.emit(this.i);
@@ -27,5 +32,13 @@ export class Todo {
 
   deleteTodo() {
     this.delete.emit();
+  }
+
+  navigateToDetails() {
+    const navigationExtras: NavigationExtras = {
+      relativeTo: this.route,
+      // state: { example: 'test' }
+    }
+    this.router.navigate([this.i], navigationExtras)
   }
 }
