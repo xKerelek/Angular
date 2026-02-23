@@ -1,0 +1,14 @@
+{
+  "todo": [
+    {
+      "id": "1",
+      "name": "Zadanie testowe",
+      "isComplete": true
+    },
+    {
+      "id": "5cab",
+      "name": "Zadabniue",
+      "isComplete": false
+    }
+  ]
+}

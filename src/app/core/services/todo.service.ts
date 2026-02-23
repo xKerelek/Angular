@@ -6,43 +6,40 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class TodoService {
-  private _todos: ToDo[] = JSON.parse(localStorage.getItem('todos')!) ?? [];
+  // private _todos: ToDo[] = JSON.parse(localStorage.getItem('todos')!) ?? [];
+  private _todos: ToDo[] =  [];
   todoChanged = new Subject<ToDo[]>();
 
   constructor() {}
+
   public get todos() {
     return this._todos.slice();
   }
 
-  getTodo(index: number): ToDo | undefined {
-    return this.todos[index];
-  }
-
-  addToDo(name: string): void {
-    this._todos.push({name: name, isComplete: false});
-    this.saveToLocalStorage();
+  public set todos(arrTodos: ToDo[]) {
+    this._todos = [...arrTodos];
     this.todoChanged.next(this.todos);
   }
 
-  deleteTodo(i: number) {
-    this._todos = this.todos.filter((todo, index) => index !== i);
-    this.saveToLocalStorage();
+  addToDo(todo: ToDo): void {
+    this._todos.push(todo);
     this.todoChanged.next(this.todos);
   }
 
-    changeTodoStatus(i: number) {
-    this._todos[i] = {
-      ...this.todos[i],
-      isComplete: !this.todos[i].isComplete
+  deleteTodo(id: number) {
+    this._todos = this.todos.filter((todo, index) => todo.id !== id);
+    this.todoChanged.next(this.todos);
+  }
+
+    changeTodoStatus(id: number, isComplete: boolean) {
+    const searchTodo = this.todos.find(todo => todo.id === id);
+    if(searchTodo) {
+      searchTodo.isComplete = isComplete;
     }
-    this.saveToLocalStorage();
+
     this.todoChanged.next(this.todos);
   }
-
-  saveToLocalStorage() {
-    localStorage.setItem('todos', JSON.stringify(this.todos));
-  }
-
-
-
+  // saveToLocalStorage() {
+  //   localStorage.setItem('todos', JSON.stringify(this.todos));
+  // }
 }

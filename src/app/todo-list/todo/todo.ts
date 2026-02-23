@@ -12,6 +12,7 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 })
 export class Todo {
   @Input() todo!: ToDo;
+  @Input() id!: number;
   @Input() i!: number;
   @Output() delete = new EventEmitter<void>();
   @Output() changeStatus = new EventEmitter<number>();
@@ -23,7 +24,7 @@ export class Todo {
 
 
   changeToDoStatus(todo: ToDo) {
-    this.changeStatus.emit(this.i);
+    this.changeStatus.emit(this.id);
   }
 
   toggleModal() {
@@ -39,6 +40,6 @@ export class Todo {
       relativeTo: this.route,
       // state: { example: 'test' }
     }
-    this.router.navigate([this.i], navigationExtras)
+    this.router.navigate([this.todo.id], navigationExtras)
   }
 }
