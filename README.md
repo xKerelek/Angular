@@ -36,6 +36,13 @@ Projekt pozwala dodawać, usuwać oraz oznaczać zadania jako wykonane.
 - **Location** — do powrotu na poprzednią stronę
 - **Subskrypcję paramMap** — aby reagować na zmianę parametru w adresie
 
+### 🧩 Angular – HTTP Client + serwer testowy **json-server**
+
+- get() - pobranie wszystkich zadań z testowego serwera,
+- post() - dodanie nowego zadania do testowego serwera,
+- patch() - aktualizuje status zadania,
+- delete() - usuwa zadanie po id.
+
 ---
 
 ## 💅 Stylowanie
@@ -69,6 +76,7 @@ To zadanie pozwoliło mi przećwiczyć podstawy Angulara, takie jak:
 - integracja z Bootstrapem,
 - lifecycle hooks,
 - subskrypcje,
-- nawigacja.
+- nawigacja,
+- http client.
 
 Kolejne zadania będą pojawiać się w następnych branchach.
