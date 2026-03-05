@@ -4,8 +4,16 @@
            <h1 class="text-3xl font-bold">Mini CRM</h1>
         </div>
         <ul class="flex justify-around gap-5">
-            <li class=""><a routerLink="">Home</a></li>
-            <li><a routerLink="/contacts">Contacts</a></li>
+            <li>
+              <a routerLink=""
+              routerLinkActive="font-bold underline text-yellow-500"
+              [routerLinkActiveOptions]="{exact: true}">Home</a>
+            </li>
+            <li>
+              <a routerLink="/contacts"
+                 routerLinkActive="font-bold underline text-yellow-500"
+              >Contacts</a>
+            </li>
         </ul>
     </div>
 
