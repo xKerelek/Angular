@@ -1,20 +1,22 @@
-<div class="flex justify-center">
-    <div class="bg-blue-400 rounded-b-xl w-1/2 p-5 text-white flex justify-between items-center">
-        <div>
-           <h1 class="text-3xl font-bold">Mini CRM</h1>
-        </div>
-        <ul class="flex justify-around gap-5">
-            <li>
-              <a routerLink=""
-              routerLinkActive="font-bold underline text-yellow-500"
-              [routerLinkActiveOptions]="{exact: true}">Home</a>
-            </li>
-            <li>
-              <a routerLink="/contacts"
-                 routerLinkActive="font-bold underline text-yellow-500"
-              >Contacts</a>
-            </li>
-        </ul>
+<div class="flex justify-center px-4 w-full">
+  <div class="bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg rounded-b-2xl w-full max-w-5xl p-5 text-white flex justify-between items-center">
+
+    <div>
+      <h1 class="text-3xl font-extrabold tracking-tight drop-shadow-sm">Mini CRM</h1>
     </div>
 
+    <ul class="flex items-center gap-4 sm:gap-8 text-lg font-medium">
+      <li>
+        <a routerLink=""
+           routerLinkActive="text-yellow-300 font-extrabold drop-shadow-md scale-105"
+           [routerLinkActiveOptions]="{exact: true}"
+           class="inline-block hover:text-blue-200 transition-all px-2 py-1">Home</a>
+      </li>
+      <li>
+        <a routerLink="/contacts"
+           routerLinkActive="text-yellow-300 font-extrabold drop-shadow-md scale-105"
+           class="inline-block hover:text-blue-200 transition-all px-2 py-1">Contacts</a>
+      </li>
+    </ul>
+  </div>
 </div>

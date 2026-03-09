@@ -1,26 +1,42 @@
-<div class="flex justify-center mt-1 w-full">
-  <div class="flex flex-col gap-5 bg-slate-200 p-8 rounded-xl">
-    <h2 class="text-3xl font-bold text-center mb-5">Add New Contact</h2>
+<div class="flex justify-center mt-6 mb-10 w-full px-4">
+  <div class="flex flex-col gap-6 w-full max-w-md bg-white p-8 rounded-2xl shadow-md border border-slate-100">
+
+    <h2 class="text-3xl font-extrabold text-center text-slate-800 mb-2">Add New Contact</h2>
+
     <div class="flex flex-col gap-2">
-      <label class="text-xl font-bold">First Name</label>
-      <input type="text" placeholder="Enter First name..." class="border p-2 rounded-lg" [(ngModel)]="firstName">
+      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">First Name</label>
+      <input type="text" placeholder="Enter First name..."
+             class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
+             [(ngModel)]="firstName">
     </div>
-    <div class="flex flex-col gap-5">
-      <label class="text-xl font-bold">Last Name</label>
-      <input type="text" placeholder="Enter Last Name..." class="border p-2 rounded-lg" [(ngModel)]="lastName">
+
+    <div class="flex flex-col gap-2">
+      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Last Name</label>
+      <input type="text" placeholder="Enter Last Name..."
+             class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
+             [(ngModel)]="lastName">
     </div>
-    <div class="flex flex-col gap-5">
-      <label class="text-xl font-bold">Phone number</label>
-      <input type="number" placeholder="Enter phone number..." class="border p-2 rounded-lg" [(ngModel)]="phoneNumber">
+
+    <div class="flex flex-col gap-2">
+      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone number</label>
+      <input type="number" placeholder="Enter phone number..."
+             class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
+             [(ngModel)]="phoneNumber">
     </div>
-    <div class="flex flex-col gap-5">
-      <label class="text-xl font-bold">E-mail</label>
-      <input type="email" placeholder="Enter e-mail..." class="border p-2 rounded-lg" [(ngModel)]="email">
+
+    <div class="flex flex-col gap-2">
+      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">E-mail</label>
+      <input type="email" placeholder="Enter e-mail..."
+             class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
+             [(ngModel)]="email">
     </div>
-    <div class="flex justify-around">
-      <button class="bg-gray-400 p-3 rounded-lg text-gray-600 font-bold cursor-pointer" (click)="onClose()">Clear</button>
-      <button class="bg-green-400 p-3 rounded-lg text-green-600 font-bold cursor-pointer" (click)="onAddContact()">Add new contact</button>
+
+    <div class="flex gap-4 mt-4">
+      <button class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-700 p-3 rounded-xl font-bold transition-colors"
+              (click)="onClose()">Clear</button>
+      <button class="flex-1 bg-green-500 hover:bg-green-600 text-white p-3 rounded-xl font-bold shadow-sm transition-colors"
+              (click)="onAddContact()">Add Contact</button>
     </div>
+
   </div>
 </div>
-
