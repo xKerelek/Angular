@@ -1,12 +1,13 @@
 import {Component, inject, OnInit} from '@angular/core';
-import { CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 import { AddContactComponent } from '../add-contact/add-contact.component';
-import {ContactService} from '../contact.service';
+import { ContactService } from '../contact.service';
 
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, AddContactComponent],
+  imports: [CommonModule, AddContactComponent, FormsModule],
   templateUrl: './contact.component.html',
   standalone: true,
   styleUrl: './contact.component.css'
@@ -14,6 +15,7 @@ import {ContactService} from '../contact.service';
 export class ContactComponent implements OnInit {
   isFormOpen: boolean = false;
   initialData: any[] = [];
+  searchText = '';
   contactService = inject(ContactService);
 
 
@@ -49,6 +51,16 @@ export class ContactComponent implements OnInit {
       next: () => this.initialData = this.initialData.filter((item: any) => item.id !== contactToDelete.id),
       error: (err) => console.log("Error while deleting contact", err)
     });
+  }
+
+  get filteredContacts() {
+    if (!this.searchText) {
+      return this.initialData;
+    }
+
+    const lowerCaseText = this.searchText.toLowerCase();
+    return this.initialData.filter((contacts) =>
+    contacts.firstName.toLowerCase().includes(lowerCaseText) || contacts.lastName.toLowerCase().includes(lowerCaseText));
   }
 
   toggleModal() {

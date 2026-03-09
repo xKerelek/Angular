@@ -25,5 +25,4 @@ export class ContactService {
   deleteContacts(id: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
-
 }
