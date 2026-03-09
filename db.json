@@ -4,7 +4,7 @@
       "id": "1",
       "firstName": "Jane",
       "lastName": "Doe",
-      "phoneNumber": "111222333",
+      "phoneNumber": 22113312,
       "email": "jane.doe@gmail.com",
       "isAvailable": false
     },

@@ -16,6 +16,7 @@ export class ContactComponent implements OnInit {
   isFormOpen: boolean = false;
   initialData: any[] = [];
   searchText = '';
+  editContacts: string | null = null;
   contactService = inject(ContactService);
 
 
@@ -61,6 +62,22 @@ export class ContactComponent implements OnInit {
     const lowerCaseText = this.searchText.toLowerCase();
     return this.initialData.filter((contacts) =>
     contacts.firstName.toLowerCase().includes(lowerCaseText) || contacts.lastName.toLowerCase().includes(lowerCaseText));
+  }
+
+  startEdit(contact: any) {
+    this.editContacts = contact.id;
+  }
+
+  cancelEdit() {
+    this.editContacts = null;
+    this.fetchContacts();
+  }
+
+  saveEdit(contact: any) {
+    this.contactService.updateContacts(contact).subscribe({
+      next: () => this.editContacts = null,
+      error: (err) => console.log("Error while updating contact", err)
+    });
   }
 
   toggleModal() {
