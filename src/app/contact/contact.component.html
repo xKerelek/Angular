@@ -4,7 +4,7 @@
 <div class="flex justify-center"  *ngIf="isFormOpen">
   <button type="button" class="bg-orange-300 p-3 rounded-2xl text-orange-600 font-bold cursor-pointer" (click)="toggleModal()">Close form</button>
 </div>
-<app-add-contact *ngIf="isFormOpen"></app-add-contact>
+<app-add-contact *ngIf="isFormOpen" (addContactEvent)="onAddContact($event)"></app-add-contact>
 
 
 <div class="flex flex-row gap-10 justify-center mt-10">

@@ -2,24 +2,24 @@
   <div class="flex flex-col gap-5 bg-slate-200 p-8 rounded-xl">
     <h2 class="text-3xl font-bold text-center mb-5">Add New Contact</h2>
     <div class="flex flex-col gap-2">
-      <label class="text-xl font-bold">First Nsame</label>
-      <input type="text" placeholder="Enter First name..." class="border p-2 rounded-lg">
+      <label class="text-xl font-bold">First Name</label>
+      <input type="text" placeholder="Enter First name..." class="border p-2 rounded-lg" [(ngModel)]="firstName">
     </div>
     <div class="flex flex-col gap-5">
       <label class="text-xl font-bold">Last Name</label>
-      <input type="text" placeholder="Enter Last Name..." class="border p-2 rounded-lg">
+      <input type="text" placeholder="Enter Last Name..." class="border p-2 rounded-lg" [(ngModel)]="lastName">
     </div>
     <div class="flex flex-col gap-5">
       <label class="text-xl font-bold">Phone number</label>
-      <input type="number" placeholder="Enter phone number..." class="border p-2 rounded-lg">
+      <input type="number" placeholder="Enter phone number..." class="border p-2 rounded-lg" [(ngModel)]="phoneNumber">
     </div>
     <div class="flex flex-col gap-5">
       <label class="text-xl font-bold">E-mail</label>
-      <input type="email" placeholder="Enter e-mail..." class="border p-2 rounded-lg">
+      <input type="email" placeholder="Enter e-mail..." class="border p-2 rounded-lg" [(ngModel)]="email">
     </div>
     <div class="flex justify-around">
-      <button class="bg-gray-400 p-3 rounded-lg text-gray-600 font-bold cursor-pointer">Close</button>
-      <button class="bg-green-400 p-3 rounded-lg text-green-600 font-bold cursor-pointer">Add new contact</button>
+      <button class="bg-gray-400 p-3 rounded-lg text-gray-600 font-bold cursor-pointer" (click)="onClose()">Clear</button>
+      <button class="bg-green-400 p-3 rounded-lg text-green-600 font-bold cursor-pointer" (click)="onAddContact()">Add new contact</button>
     </div>
   </div>
 </div>

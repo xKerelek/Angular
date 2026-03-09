@@ -21,7 +21,6 @@ export class ContactComponent {
 
   onChangeStatus(contact: any) {
     contact.isAvailable = !contact.isAvailable;
-
   }
 
   onDelete(contact: any) {
@@ -32,6 +31,9 @@ export class ContactComponent {
     this.isFormOpen = !this.isFormOpen;
   }
 
-
+  onAddContact(newContact: any) {
+    this.initialData.push(newContact);
+    this.toggleModal();
+  }
 
 }
