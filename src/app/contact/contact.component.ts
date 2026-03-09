@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { CommonModule} from '@angular/common';
 import { AddContactComponent } from '../add-contact/add-contact.component';
+import {ContactService} from '../contact.service';
 
 
 @Component({
@@ -10,30 +11,47 @@ import { AddContactComponent } from '../add-contact/add-contact.component';
   standalone: true,
   styleUrl: './contact.component.css'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
+  isFormOpen: boolean = false;
+  initialData: any[] = [];
+  contactService = inject(ContactService);
 
-  isFormOpen = false;
-  initialData = [
-    {id: "1", firstName: "Jane", lastName: "Doe", phoneNumber: "111222333", email: "jane.doe@gmail.com", isAvailable: false },
-    {id: "2", firstName: "Burnice", lastName: "White", phoneNumber: "333222111", email: "burn.ice@gmail.com", isAvailable: true },
-    {id: "3", firstName: "Yi", lastName: "Xuan", phoneNumber: "444111222", email: "yixuan@gmail.com", isAvailable: true },
-  ];
 
-  onChangeStatus(contact: any) {
-    contact.isAvailable = !contact.isAvailable;
+  ngOnInit(): void {
+    this.fetchContacts();
   }
 
-  onDelete(contact: any) {
-    this.initialData = this.initialData.filter((item: any) => contact.id !== item.id);
+  fetchContacts() {
+    this.contactService.getContacts().subscribe({
+      next: (contacts) => this.initialData = contacts,
+      error: (err) => console.log("Error while fetching contacts", err)
+    });
+  }
+
+  onAddContact(newContact: any) {
+    this.contactService.createContacts(newContact).subscribe({
+      next: (contacts) => this.initialData.push(contacts),
+      error: (err) => console.log("Error while adding contact", err),
+      complete: () => this.toggleModal()
+    });
+  }
+
+  onChangeStatus(contact: any) {
+    const updatedContact = {...contact, isAvailable: !contact.isAvailable};
+    this.contactService.updateContacts(updatedContact).subscribe({
+      next: (serverResponse) => { contact.isAvailable = serverResponse.isAvailable;},
+      error: (err) => console.log("Error while updating contact", err)
+    });
+  }
+
+  onDelete(contactToDelete: any) {
+    this.contactService.deleteContacts(contactToDelete.id).subscribe({
+      next: () => this.initialData = this.initialData.filter((item: any) => item.id !== contactToDelete.id),
+      error: (err) => console.log("Error while deleting contact", err)
+    });
   }
 
   toggleModal() {
     this.isFormOpen = !this.isFormOpen;
   }
-
-  onAddContact(newContact: any) {
-    this.initialData.push(newContact);
-    this.toggleModal();
-  }
-
 }
