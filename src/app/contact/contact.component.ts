@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 import { AddContactComponent } from '../add-contact/add-contact.component';
 import { ContactService } from '../contact.service';
+import {AlertService} from '../alert.service';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class ContactComponent implements OnInit {
   searchText = '';
   editContacts: string | null = null;
   contactService = inject(ContactService);
+  alertService = inject(AlertService);
+
 
 
   ngOnInit(): void {
@@ -33,9 +36,12 @@ export class ContactComponent implements OnInit {
 
   onAddContact(newContact: any) {
     this.contactService.createContacts(newContact).subscribe({
-      next: (contacts) => this.initialData.push(contacts),
-      error: (err) => console.log("Error while adding contact", err),
-      complete: () => this.toggleModal()
+      next: (contacts) => {
+        this.initialData.push(contacts);
+        this.isFormOpen = false;
+        this.alertService.showAlert('Contact added successfully!');
+      },
+
     });
   }
 
@@ -49,8 +55,10 @@ export class ContactComponent implements OnInit {
 
   onDelete(contactToDelete: any) {
     this.contactService.deleteContacts(contactToDelete.id).subscribe({
-      next: () => this.initialData = this.initialData.filter((item: any) => item.id !== contactToDelete.id),
-      error: (err) => console.log("Error while deleting contact", err)
+      next: () => {
+        this.initialData = this.initialData.filter((item: any) => item.id !== contactToDelete.id);
+        this.alertService.showAlert('Contact deleted successfully!');
+      }
     });
   }
 
@@ -75,8 +83,11 @@ export class ContactComponent implements OnInit {
 
   saveEdit(contact: any) {
     this.contactService.updateContacts(contact).subscribe({
-      next: () => this.editContacts = null,
-      error: (err) => console.log("Error while updating contact", err)
+      next: () => {
+        this.editContacts = null;
+        this.alertService.showAlert('Contact updated successfully!');
+      },
+
     });
   }
 

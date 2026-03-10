@@ -1,10 +1,11 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-contact',
   imports: [
-    FormsModule
+    FormsModule, CommonModule
   ],
   templateUrl: './add-contact.component.html',
   standalone: true,
@@ -21,6 +22,10 @@ export class AddContactComponent {
 
 
   onAddContact() {
+    if (!this.firstName || !this.lastName || !this.phoneNumber || !this.email) {
+      return;
+    }
+
     const newContact = {
       id: Date.now().toString(),
       firstName: this.firstName,

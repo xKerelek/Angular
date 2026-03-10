@@ -12,7 +12,7 @@
       "id": "2",
       "firstName": "Burnice",
       "lastName": "White",
-      "phoneNumber": "333222111",
+      "phoneNumber": 333222111,
       "email": "burn.ice@gmail.com",
       "isAvailable": true
     },

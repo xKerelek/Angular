@@ -3,40 +3,63 @@
 
     <h2 class="text-3xl font-extrabold text-center text-slate-800 mb-2">Add New Contact</h2>
 
-    <div class="flex flex-col gap-2">
-      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">First Name</label>
-      <input type="text" placeholder="Enter First name..."
-             class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
-             [(ngModel)]="firstName">
-    </div>
+    <form #contactForm="ngForm" (ngSubmit)="onAddContact()" class="flex flex-col gap-6">
 
-    <div class="flex flex-col gap-2">
-      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Last Name</label>
-      <input type="text" placeholder="Enter Last Name..."
-             class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
-             [(ngModel)]="lastName">
-    </div>
+      <div class="flex flex-col gap-2">
+        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">First Name</label>
+        <input type="text" name="firstName" placeholder="Enter First name..."
+               class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
+               [(ngModel)]="firstName" required minlength="2" maxlength="20"
+               #firstNameCtrl="ngModel">
+        <span *ngIf="firstNameCtrl.invalid && (firstNameCtrl.dirty || firstNameCtrl.touched)" class="text-red-500 text-xs font-bold">
+          First name is required (min. 2 chars).
+        </span>
+      </div>
 
-    <div class="flex flex-col gap-2">
-      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone number</label>
-      <input type="number" placeholder="Enter phone number..."
-             class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
-             [(ngModel)]="phoneNumber">
-    </div>
+      <div class="flex flex-col gap-2">
+        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Last Name</label>
+        <input type="text" name="lastName" placeholder="Enter Last Name..."
+               class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
+               [(ngModel)]="lastName" required minlength="2" maxlength="20"
+               #lastNameCtrl="ngModel">
+        <span *ngIf="lastNameCtrl.invalid && (lastNameCtrl.dirty || lastNameCtrl.touched)" class="text-red-500 text-xs font-bold">
+          Last name is required (min. 2 chars).
+        </span>
+      </div>
 
-    <div class="flex flex-col gap-2">
-      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">E-mail</label>
-      <input type="email" placeholder="Enter e-mail..."
-             class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
-             [(ngModel)]="email">
-    </div>
+      <div class="flex flex-col gap-2">
+        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone number</label>
+        <input type="number" name="phoneNumber" placeholder="Enter phone number..."
+               class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
+               [(ngModel)]="phoneNumber" required
+               #phoneCtrl="ngModel">
+        <span *ngIf="phoneCtrl.invalid && (phoneCtrl.dirty || phoneCtrl.touched)" class="text-red-500 text-xs font-bold">
+          Phone number is required.
+        </span>
+      </div>
 
-    <div class="flex gap-4 mt-4">
-      <button class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-700 p-3 rounded-xl font-bold transition-colors"
-              (click)="onClose()">Clear</button>
-      <button class="flex-1 bg-green-500 hover:bg-green-600 text-white p-3 rounded-xl font-bold shadow-sm transition-colors"
-              (click)="onAddContact()">Add Contact</button>
-    </div>
+      <div class="flex flex-col gap-2">
+        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">E-mail</label>
+        <input type="email" name="email" placeholder="Enter e-mail..."
+               class="border border-slate-300 bg-slate-50 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow w-full"
+               [(ngModel)]="email" required email
+               #emailCtrl="ngModel">
+        <span *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)" class="text-red-500 text-xs font-bold">
+          Valid e-mail is required.
+        </span>
+      </div>
 
+      <div class="flex gap-4 mt-4">
+        <button type="button" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-700 p-3 rounded-xl font-bold transition-colors"
+                (click)="onClose()">Clear</button>
+
+        <button type="submit"
+                class="flex-1 text-white p-3 rounded-xl font-bold shadow-sm transition-all"
+                [ngClass]="{'bg-green-500 hover:bg-green-600': !contactForm.invalid, 'bg-gray-400 cursor-not-allowed opacity-50': contactForm.invalid}"
+                [disabled]="contactForm.invalid">
+          Add Contact
+        </button>
+      </div>
+    </form>
   </div>
 </div>
