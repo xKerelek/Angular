@@ -144,3 +144,30 @@ To run the project locally:
 1. Install dependencies: 
 ```bash 
 npm install
+```
+
+2. Start the development server:
+```bash
+ng serve
+```
+
+3. Open the application at:
+```bash
+http://localhost:4200
+```
+
+## 🚀 Summary
+This task allowed me to practice Angular fundamentals, such as:
+- working with components,
+- data binding,
+- decorators,
+- DI - Dependency Injection,
+- dynamic styling,
+- integrating with Bootstrap,
+- lifecycle hooks,
+- subscriptions,
+- navigation,
+- HTTP Client.
+
+Future tasks will be added in upcoming branches.
+
