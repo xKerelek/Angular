@@ -1,59 +1,58 @@
-# MiniCrm
+# 📇 Mini CRM
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+Aplikacja do zarządzania kontaktami.
 
-## Development server
+## 🚀 Główne funkcje
 
-To start a local development server, run:
+Ten projekt to w pełni funkcjonalna aplikacja typu Single Page Application (SPA), która zawiera:
+* **Pełny CRUD:** Tworzenie, odczyt, aktualizacja i usuwanie kontaktów połączone z udawanym (mock) REST API.
+* **Wyszukiwanie na żywo:** Filtrowanie kontaktów po imieniu lub nazwisku w czasie rzeczywistym, bez przeładowywania strony.
+* **Edycja w locie (Inline Editing):** Płynna aktualizacja numeru telefonu, e-maila i statusu bezpośrednio na kafelku kontaktu.
+* **Walidacja formularzy:** Kompleksowa walidacja po stronie frontendu (wymagane pola, min/max długość, format e-mail) z dynamicznymi komunikatami błędów i blokowaniem przycisku wysyłania.
+* **Globalne powiadomienia (Toasty):** Niestandardowy system alertów oparty na serwisie i RxJS Subjects, zapewniający elegancki feedback po akcjach użytkownika.
+* **Responsywny interfejs:** Czysty i nowoczesny UI zbudowany przy użyciu Tailwind CSS (siatki grid, eleganckie formularze, minimalistyczne przyciski).
 
-```bash
-ng serve
-```
+## 🛠️ Technologie
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+* **Framework:** Angular 19 (Komponenty Standalone, nowoczesna składnia `inject()`)
+* **Style:** Tailwind CSS
+* **Zarządzanie stanem i reaktywność:** RxJS (Observables, Subjects)
+* **Backend:** JSON Server (Mock REST API)
 
-## Code scaffolding
+## 🏗️ Architektura
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Aplikacja wykorzystuje nowoczesne podejście do architektury Angulara:
+* **Komponenty Standalone:** Brak starego pliku `app.module.ts`, każdy komponent sam zarządza swoimi zależnościami.
+* **Komunikacja oparta na serwisach:** `AlertService` pozwala na komunikację między niezależnymi komponentami w celu wywoływania globalnych powiadomień.
+* **Wykrywanie zmian (Change Detection):** Świadome użycie `ChangeDetectorRef` do ręcznego odświeżania widoku przy zdarzeniach asynchronicznych (np. czyszczenie alertów przez `setTimeout`).
 
-```bash
-ng generate component component-name
-```
+---
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+# 📇 Mini CRM 
 
-```bash
-ng generate --help
-```
+Contact Management application.
 
-## Building
+## 🚀 Features
 
-To build the project run:
+This project is a fully functional Single Page Application (SPA) that includes:
+* **Full CRUD Operations:** Create, Read, Update, and Delete contacts connected to a mock REST API.
+* **Live Search:** Real-time filtering of contacts by First or Last Name without reloading the page.
+* **Inline Editing:** Seamlessly update a contact's phone number, e-mail, and status directly on the contact card.
+* **Form Validation:** Comprehensive frontend validation (required fields, min/max length, e-mail format) with dynamic UI feedback and disabled submit buttons.
+* **Global Notifications (Toasts):** A custom, service-based alert system using RxJS Subjects to provide non-intrusive feedback after user actions.
+* **Responsive UI:** Clean and modern interface built with Tailwind CSS (Grid layouts, elegant forms, ghost buttons).
 
-```bash
-ng build
-```
+## 🛠️ Tech Stack
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+* **Framework:** Angular 19 (Standalone Components, modern `inject()` syntax)
+* **Styling:** Tailwind CSS
+* **State Management & Reactivity:** RxJS (Observables, Subjects)
+* **Backend:** JSON Server (Mock REST API)
 
-## Running unit tests
+## 🏗️ Architecture Highlights
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The application utilizes a modern Angular architecture:
+* **Standalone Components:** No `app.module.ts` overhead.
+* **Service-Driven Communication:** The `AlertService` handles communication between deeply nested or sibling components to trigger global UI toasts.
+* **Smart Change Detection:** Usage of `ChangeDetectorRef` to manually trigger view updates for asynchronous events (like `setTimeout` in alerts).
