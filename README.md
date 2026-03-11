@@ -80,3 +80,67 @@ To zadanie pozwoliło mi przećwiczyć podstawy Angulara, takie jak:
 - http client.
 
 Kolejne zadania będą pojawiać się w następnych branchach.
+
+---
+---
+
+# 📝 Task 1 – ToDo List
+
+For the first task, I created a simple **ToDo list** in Angular.  
+The project allows you to add, delete, and mark tasks as completed.
+
+---
+
+## 🎨 Technologies and Features Used
+
+### 🧩 Angular – Data Binding
+
+- **\*ngFor** – to display the list of tasks  
+- **\*ngIf** – for conditional rendering of elements  
+- **[ngClass]** – to dynamically apply classes (e.g., styling for a completed task)
+
+### 🧩 Angular – Component Communication (Decorators)
+
+- **@Input()** – passing data from a parent component to a child  
+- **@Output()** – emitting events from a child component to a parent
+
+### 🧩 Angular – Dependency Injection
+
+- Injecting dependencies via the constructor  
+- Creating and using services for business logic and data management
+
+### 🧩 Angular – Subscriptions and Lifecycle Hooks
+
+- Used to react to changes in the task list, ensuring the view updates automatically when data changes.
+- **ngOnInit()** - where I subscribed to `todoChanged` from the service.
+- **ngOnDestroy()** - unsubscribing to prevent memory leaks.
+
+### 🧩 Angular – Navigation + Displaying Task Details
+
+- **ActivatedRoute** — to retrieve the `id` parameter from the URL
+- **Router** — to navigate to the next task
+- **Location** — to go back to the previous page
+- **Subscribing to paramMap** — to react to parameter changes in the URL
+
+### 🧩 Angular – HTTP Client + mock server **json-server**
+
+- **get()** - fetching all tasks from the mock server
+- **post()** - adding a new task to the mock server
+- **patch()** - updating the task status
+- **delete()** - deleting a task by its ID
+
+---
+
+## 💅 Styling
+
+I used **Bootstrap** for styling, making the application look aesthetic and responsive.
+
+---
+
+## ▶️ Running the Project
+
+To run the project locally: 
+
+1. Install dependencies: 
+```bash 
+npm install
